@@ -7,7 +7,7 @@ public class Factura {
     private Venta venta;
     private LocalDate fechaImpresion;
 
-    public  factura (
+    public void factura (
         String id,
         String numeroFactura,
         String numComprobante,
@@ -20,15 +20,15 @@ public class Factura {
     this.numeroFactura = numeroFactura;
     this.numComprobante = numComprobante;
     this.venta = venta;
-    this.LocalDate fechaImpresion;
+    this.fechaImpresion = fechaImpresion;
     }
 
     // Getters and Setters
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -57,8 +57,6 @@ public class Factura {
         return fechaImpresion;
     }
 
-    public void setfechaImpresion(String fecha) {
-        this.fechaImpresion = fechaImpresion;
-    }
+    public void setfechaImpresion(String fecha) { this.fechaImpresion = fechaImpresion;}
 }
 }

@@ -25,7 +25,7 @@ public class Venta {
         }
         // verifica cantidades y precio mayor a 0
         if(p.getCantidad() <= 0 || p.getPrecio() <= 0){
-            return false
+            return false;
         }
         // añade los productos y retorna true
         productos.add(p);
@@ -73,27 +73,75 @@ public class Venta {
 
         return this;
     }
+    
+    @Override
+    public Factura imprimirFactura() {
+        if (total == 0) {
+            return null;
+        }
+
+
+        Factura factura = new Factura(
+                "FAC-" + id,      // id
+                id,               // numeroFactura
+                "B02" + id,       // NCF
+                this,
+                LocalDate.now()
+        );
+
+
+        System.out.println("========================================");
+        System.out.println("FACTURA No. " + factura.getNumeroComprobante()); // en tu Factura este getter devuelve el número de factura
+        System.out.println("NCF: " + factura.getNumComprobant());
+        System.out.println("Fecha: " + factura.getfechaImpresion());
+        System.out.println("Cliente: " + cliente.getNombreCompleto()
+                + " (" + cliente.getCedula() + ")");
+        System.out.println("----------------------------------------");
+
+
+        for (Producto p : productos) {
+            double importe = p.getPrecio() * p.getCantidad();
+            System.out.println(String.format(Locale.US, "%s %d x %.2f = %.2f",
+                    p.getNombreProducto(), p.getCantidad(), p.getPrecio(), importe));
+        }
+
+
+        System.out.println("----------------------------------------");
+        System.out.println(String.format(Locale.US, "Subtotal: %.2f", subTotal));
+        System.out.println(String.format(Locale.US, "ITBIS (18%%): %.2f", subTotal * ITBIS));
+        System.out.println(String.format(Locale.US, "TOTAL: %.2f", total));
+        System.out.println("========================================");
+
+
+        return factura;
+    }
+
 
     // Getters and Setters
     public String getId() {
         return id;
     }
 
+
     public void setId(String id) {
         this.id = id;
     }
+
 
     public LocalDate getFechaVenta() {
         return fechaVenta;
     }
 
+
     public void setFechaVenta(LocalDate fecha) {
         this.fechaVenta = fecha;
     }
 
+
     public double getTotal() {
         return total;
     }
+
 
     public void setTotal(double total) {
         this.total = total;
