@@ -19,15 +19,15 @@ public class Venta {
     }
 
     public boolean añadirProducto(Producto p){
-
+        //verifica que no sea null
         if(p == null){
             return false;
         }
-
+        // verifica cantidades y precio mayor a 0
         if(p.getCantidad() <= 0 || p.getPrecio() <= 0){
             return false
         }
-
+        // añade los productos y retorna true
         productos.add(p);
         return true;
     }
