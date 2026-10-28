@@ -1,4 +1,3 @@
-
 public interface IOperaciones {
     boolean añadirProducto(Producto producto);
 
