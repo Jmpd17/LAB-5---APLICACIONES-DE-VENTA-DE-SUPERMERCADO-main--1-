@@ -1,7 +1,8 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Locale;
 
-public class Venta {
+public class Venta implements IFacturable, IOperaciones {
     private String id;
     private ArrayList<Producto> productos;
     private double subTotal;
@@ -73,7 +74,7 @@ public class Venta {
 
         return this;
     }
-    
+
     @Override
     public Factura imprimirFactura() {
         if (total == 0) {

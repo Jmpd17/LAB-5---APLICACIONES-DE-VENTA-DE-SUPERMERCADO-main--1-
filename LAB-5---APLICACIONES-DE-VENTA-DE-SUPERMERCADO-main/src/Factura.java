@@ -7,7 +7,9 @@ public class Factura {
     private Venta venta;
     private LocalDate fechaImpresion;
 
-    public void factura (
+
+
+    public  Factura (
         String id,
         String numeroFactura,
         String numComprobante,
@@ -59,4 +61,4 @@ public class Factura {
 
     public void setfechaImpresion(String fecha) { this.fechaImpresion = fechaImpresion;}
 }
-}
+
