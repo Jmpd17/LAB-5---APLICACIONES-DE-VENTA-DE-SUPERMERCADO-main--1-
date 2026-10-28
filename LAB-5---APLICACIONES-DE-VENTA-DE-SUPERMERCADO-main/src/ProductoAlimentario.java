@@ -19,7 +19,7 @@ public class ProductoAlimentario extends Producto {
     @Override
 public ProductoAlimentario mostrarDetalle() {
     super.mostrarDetalle();
-    System.out.println("Fecha de vencimiento: " + fechaVencimiento);
+    System.out.println("Fecha de vencimiento: " + getFechaVencimiento());
     return this;
 }
 }
