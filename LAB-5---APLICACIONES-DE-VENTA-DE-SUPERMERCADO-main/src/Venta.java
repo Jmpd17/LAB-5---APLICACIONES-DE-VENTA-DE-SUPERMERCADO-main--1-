@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Ventas {
+public class Venta {
     private String id;
     private ArrayList<Producto> productos;
     private double subTotal;
@@ -10,7 +10,7 @@ public class Ventas {
     private Cliente cliente;
     private double total;
 
-    public Ventas(String id, Cliente cliente) {
+    public Venta(String id, Cliente cliente) {
         this.id = id;
         this.cliente = cliente;
         this.productos = new ArrayList<>();
@@ -32,7 +32,7 @@ public class Ventas {
         return true;
     }
 
-    public Ventas registrarVenta(){
+    public Venta registrarVenta(){
 
         //validacion
         if(productos.isEmpty() || cliente == null){
@@ -55,7 +55,7 @@ public class Ventas {
         return this;
     }
 
-    public Ventas mostrarDetalle(){
+    public Venta mostrarDetalle(){
         IO.println("Id de venta: " + id);
         IO.println("Fecha: " + fechaVenta);
 
